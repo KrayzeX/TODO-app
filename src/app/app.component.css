@@ -1,0 +1,55 @@
+.main-container {
+    padding: 25px 50px;
+    background-color: #518DF6;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 400;
+    color: white;
+}
+
+.n-completed {
+    padding: 15px 15px;
+}
+
+.completed {
+    padding: 15px;
+}
+
+.page {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo {
+    color: #4E4E4F;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.done {
+    color: #4E4E4F;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.list-group {
+    max-width: 450px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    height: max-content;
+    margin-left: 30px;
+    align-self: center;
+}
