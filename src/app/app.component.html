@@ -6,10 +6,11 @@
     <app-completed></app-completed> -->
     <div class="n-completed">
       <div class="todo">To do</div>
+      <button class="btn btn-primary btn-sm create-btn">Create +</button>
       <ul class="list-group">
-        <li *ngFor = "let item of tasks" class="list-group-item">
+        <li *ngFor = "let item of completedTask" class="list-group-item"  onclick="">
           {{item.title}}
-          <button class="btn btn-primary btn-sm">Delete</button>
+          <button class="btn btn-primary btn-sm" (click)="deleteTask(item.id)">Delete</button>
         </li>
       </ul>
     </div>
@@ -19,7 +20,7 @@
     <div class="completed">
       <div class="done">Done</div>
       <ul class="list-group">
-        <li *ngFor = "let item of tasks" class="list-group-item">
+        <li *ngFor = "let item of nCompleted" class="list-group-item">
           {{item.title}}
         </li>
       </ul>

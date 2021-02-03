@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class HttpData {
 
-    tasksFromRequest :any = [];
+    tasksFromRequest : any = [];
     constructor(private http : HttpClient) {}
 
     getData () {
@@ -12,6 +12,7 @@ export class HttpData {
             if (response) {
                 this.tasksFromRequest = response;
                 console.log(this.tasksFromRequest);
+                return this.tasksFromRequest;
             } else alert ('Something wrong!');
         });
     }

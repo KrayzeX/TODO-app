@@ -1,6 +1,6 @@
 .main-container {
     padding: 25px 50px;
-    background-color: #518DF6;
+    background: #6f83d6;
 }
 
 .title {
@@ -26,17 +26,32 @@
 }
 
 .todo {
-    color: #4E4E4F;
+    color: #585858;
+    box-sizing: border-box;
+    border-bottom: 2px solid #d8d8d8;
     font-size: 22px;
     text-align: center;
     margin-bottom: 10px;
 }
 
+.btn.btn-primary.btn-sm {
+    margin-left: 10px;
+}
+
+.btn.btn-primary.btn-sm.create-btn {
+    margin-left: 0px;
+    background-color: #1bc30b;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
 .done {
-    color: #4E4E4F;
+    color: #585858;
+    box-sizing: border-box;
+    border-bottom: 2px solid #d8d8d8;
     font-size: 22px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .list-group {
@@ -50,6 +65,5 @@
 
 .btn {
     height: max-content;
-    margin-left: 30px;
     align-self: center;
 }
