@@ -5,8 +5,6 @@ import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NCompletedComponent } from './n-completed/n-completed.component';
-import { CompletedComponent } from './completed/completed.component';
 import { TaskComponent } from './task/task.component';
 import { HttpData }  from './http.service';
 
@@ -14,8 +12,6 @@ import { HttpData }  from './http.service';
 @NgModule({
   declarations: [
     AppComponent,
-    NCompletedComponent,
-    CompletedComponent,
     TaskComponent
   ],
   imports: [
