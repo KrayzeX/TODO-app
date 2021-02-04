@@ -9,7 +9,7 @@ To start this application use "ng serve" command at system terminal. Then open y
 
 If you see something like this:
 
-![main-page]()
+![main-page](https://github.com/KrayzeX/TODO-app/blob/master/src/exampleMainPage.png)
 
 it means, that you successfully open TODO web application.
 
