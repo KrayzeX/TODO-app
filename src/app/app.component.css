@@ -1,22 +1,26 @@
-.main-container {
-    padding: 25px 50px;
-    background: #6f83d6;
-}
-
 .title {
     text-align: center;
-    margin-bottom: 30px;
+    line-height: 70px;
+    height: 70px;
+    background-color: #4089d4;
     font-size: 30px;
     font-weight: 400;
     color: white;
+    text-shadow: black 2px 3px 5px;
 }
 
 .n-completed {
     padding: 15px 15px;
+    width: 450px;
 }
 
 .completed {
     padding: 15px;
+    width: 450px;
+}
+
+.selectTask {
+    width: 450px;
 }
 
 .page {
@@ -63,7 +67,43 @@
     justify-content: space-between;
 }
 
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: #eaeeea;
+}
+
+.list-group-item.active {
+    background-color: #c1cedb;
+    color: black;
+    border: 1px solid #a2aab3;
+}
+
 .btn {
     height: max-content;
     align-self: center;
+}
+
+.taskblock {
+    margin-top: 102px;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.btn.btn-primary.btn-sm.save-btn {
+    margin-top: 15px;
+    margin-left: 0px;
+    background-color: #1bc30b;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#taskInputForm {
+    width: 100%;
+}
+
+.form-control {
+    width: 150px;
 }

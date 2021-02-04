@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpData } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,15 @@ import { HttpData } from './http.service';
 export class AppComponent {
   title: string = 'TODO web application';
   tasks: any = [];
+  task: any = {};
+  taskTitle: any = '';
+  taskStatus: any =[{completed: true,
+                     status: "Done"},
+                    {completed: false,
+                     status: "To do"}];
   completedTask: any;
   nCompleted: any;
+  activeId: any;
 
   constructor(
     private http : HttpClient){}
@@ -36,16 +42,32 @@ export class AppComponent {
                 return 1
               } else return -1;
             });
-            console.log(this.nCompleted);
         } else alert('Something wrong');
     });
   }
 
-  saveTask(){}
+  createTask() {}
+  
+  toggle(id: number) {
+    this.activeId = id;
+  }
+
+  selectTask(id: number) {
+    this.toggle(id);
+    this.http.get('https://jsonplaceholder.typicode.com/todos/' + id).subscribe(response => {
+      if (response) {
+        this.task = response;
+        this.taskTitle = this.task.title;
+      } else alert('Something wrong');
+    });
+  }
+
+  saveTask() {}
 
   deleteTask(id: number) {
     this.http.delete('https://jsonplaceholder.typicode.com/todos/' + id);
-    this.ngOnInit();
+    this.completedTask = this.completedTask.filter((item: any) => item.id !== id);
+    this.taskTitle = '';
   }
 
 }

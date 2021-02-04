@@ -5,14 +5,11 @@ import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
-import { HttpData }  from './http.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TaskComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +17,7 @@ import { HttpData }  from './http.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HttpData],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

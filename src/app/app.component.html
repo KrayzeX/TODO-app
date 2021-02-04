@@ -8,20 +8,44 @@
       <div class="todo">To do</div>
       <button class="btn btn-primary btn-sm create-btn">Create +</button>
       <ul class="list-group">
-        <li *ngFor = "let item of completedTask" class="list-group-item"  onclick="">
+        <li *ngFor = "let item of nCompleted" class="list-group-item"
+        [class.active] = "item.id === activeId"
+        (click)="selectTask(item.id)">
           {{item.title}}
           <button class="btn btn-primary btn-sm" (click)="deleteTask(item.id)">Delete</button>
         </li>
       </ul>
     </div>
     <div class="selectTask">
+      <!--<app-task></app-task> -->
 
+      <div class="taskblock">
+        <div class="form-group">
+            <label for= "taskInputForm">Task's title</label>
+            <input type= "text"
+                   class= "form-control input" 
+                   id= "taskInputForm" 
+                   placeholder= "Enter task title"
+                   value = "{{taskTitle}}">
+        </div>
+        <div class="from-group">
+            <label for="TaskStatus">Status</label>
+            <select class="form-control">
+                <option>Select status...</option>
+                <option *ngFor = "let status of taskStatus" [value] = "status.status" [selected] = "status.completed === task.completed">{{status.status}}</option>
+            </select>
+        </div>
+        <button class="btn btn-primary btn-sm save-btn" (click)= "saveTask()">Save</button>
+    </div>
     </div>
     <div class="completed">
       <div class="done">Done</div>
       <ul class="list-group">
-        <li *ngFor = "let item of nCompleted" class="list-group-item">
+        <li *ngFor = "let item of completedTask" class="list-group-item"
+        [class.active] = "item.id === activeId"
+        (click) ="selectTask(item.id)">
           {{item.title}}
+          <button class="btn btn-primary btn-sm" (click)="deleteTask(item.id)">Delete</button>
         </li>
       </ul>
     </div>
