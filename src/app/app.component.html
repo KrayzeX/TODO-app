@@ -1,12 +1,9 @@
 <div class="main-container">
   <div class="title">{{title}}</div>
   <div class="page">
-    <!-- <app-n-completed></app-n-completed>
-    <app-task></app-task>
-    <app-completed></app-completed> -->
+    <!-- nCompleted block-->
     <div class="n-completed">
       <div class="todo">To do</div>
-      <button class="btn btn-primary btn-sm create-btn">Create +</button>
       <ul class="list-group">
         <li *ngFor = "let item of nCompleted" class="list-group-item"
         [class.active] = "item.id === activeId"
@@ -16,28 +13,52 @@
         </li>
       </ul>
     </div>
+    <!-- Central block-->
     <div class="selectTask">
-      <!--<app-task></app-task> -->
-
-      <div class="taskblock">
+      <div class="createblock">
+        <div class="editTitle">New task</div>
         <div class="form-group">
             <label for= "taskInputForm">Task's title</label>
             <input type= "text"
                    class= "form-control input" 
                    id= "taskInputForm" 
                    placeholder= "Enter task title"
-                   value = "{{taskTitle}}">
+                   value = ""
+                   #inputBox>
         </div>
         <div class="from-group">
             <label for="TaskStatus">Status</label>
-            <select class="form-control">
+            <select class="form-control" #selectBox>
+                <option>Select status...</option>
+                <option>To do</option>
+                <option>Done</option>
+            </select>
+        </div>
+        <button class="btn btn-primary btn-sm create-btn" (click)= "createTask(inputBox.value, selectBox.value)">Create</button>
+      </div>
+      <!-- --------------------------------------------------------------------------------------- -->
+      <div class="taskblock">
+        <div class="editTitle">Edit</div>
+        <div class="form-group">
+            <label for= "taskInputForm">Task's title</label>
+            <input type= "text"
+                   class= "form-control input" 
+                   id= "taskInputForm" 
+                   placeholder= "Enter task title"
+                   value = "{{taskTitle}}"
+                   #editTitle>
+        </div>
+        <div class="from-group">
+            <label for="TaskStatus">Status</label>
+            <select class="form-control" #editStatus>
                 <option>Select status...</option>
                 <option *ngFor = "let status of taskStatus" [value] = "status.status" [selected] = "status.completed === task.completed">{{status.status}}</option>
             </select>
         </div>
-        <button class="btn btn-primary btn-sm save-btn" (click)= "saveTask()">Save</button>
+        <button class="btn btn-primary btn-sm save-btn" (click)= "updateTask(editTitle.value, editStatus.value, task.id)">Save</button>
+      </div>
     </div>
-    </div>
+    <!-- Completed block-->
     <div class="completed">
       <div class="done">Done</div>
       <ul class="list-group">

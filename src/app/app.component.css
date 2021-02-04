@@ -31,8 +31,6 @@
 
 .todo {
     color: #585858;
-    box-sizing: border-box;
-    border-bottom: 2px solid #d8d8d8;
     font-size: 22px;
     text-align: center;
     margin-bottom: 10px;
@@ -43,6 +41,7 @@
 }
 
 .btn.btn-primary.btn-sm.create-btn {
+    margin-top: 15px;
     margin-left: 0px;
     background-color: #1bc30b;
     font-weight: 500;
@@ -51,11 +50,9 @@
 
 .done {
     color: #585858;
-    box-sizing: border-box;
-    border-bottom: 2px solid #d8d8d8;
     font-size: 22px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .list-group {
@@ -84,7 +81,16 @@
 }
 
 .taskblock {
-    margin-top: 102px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.createblock {
+    margin-top: 60px;
     background-color: white;
     padding: 10px;
     box-sizing: border-box;
@@ -106,4 +112,11 @@
 
 .form-control {
     width: 150px;
+}
+
+.editTitle {
+    color: #585858;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
 }
