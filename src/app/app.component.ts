@@ -11,6 +11,7 @@ export class AppComponent {
   tasks: any = [];
   task: any = {};
   taskTitle: any = '';
+  createTaskId: any;
   taskStatus: any =[{completed: true,
                      status: "Done"},
                     {completed: false,
@@ -64,18 +65,21 @@ export class AppComponent {
   }
 
   createTask(taskTitle: string, status: string) {
-    if (status == "To do"){
-      this.postData = {title: taskTitle, completed: false};
-      this.nCompleted.push(this.postData);
-    } else {
-      this.postData = {title: taskTitle, compiled: true};
-      this.completedTask.push(this.postData);
-    }
-    this.http.post('https://jsonplaceholder.typicode.com/todos', this.postData);
+    this.createTaskId = Math.floor(Math.random() * 201);
+    if (this.createTaskId <= 200) {
+      if (status == "To do"){
+        this.postData = {title: taskTitle, completed: false, id: this.createTaskId};
+        this.nCompleted.push(this.postData);
+      } else {
+        this.postData = {title: taskTitle, compiled: true};
+        this.completedTask.push(this.postData);
+      }
+      this.http.post('https://jsonplaceholder.typicode.com/todos', this.postData);
+    } else alert('Task id must be less than 200');
 
   }
 
-  updateTask(taskTitle: string, status: string, id: number) {
+  updateTaskByStatus(taskTitle: string, status: string, id: number) {
     if (status == "To do") {
       this.updateData = {title: taskTitle, completed: false, id: id};
       this.completedTask = this.completedTask.filter((item: any) => item.id !== id);
@@ -91,8 +95,14 @@ export class AppComponent {
       this.task.completed = ''; 
       this.completedTask.push(this.updateData);
     }
-    this.http.put("https://jsonplaceholder.typicode.com/todos/" + id, this.updateData)
-    .subscribe(data => console.log(data));
+  }
+
+  updateTask(taskTitle: string, status: string, id: number) {
+    if (id <= 200){
+      this.updateTaskByStatus(taskTitle, status, id);
+      this.http.put("https://jsonplaceholder.typicode.com/todos/" + id, this.updateData)
+      .subscribe(data => console.log(data));
+    } else alert ('Task id must be less than 200');
   }
 
   deleteTask(id: number) {
